@@ -12,14 +12,14 @@ app.get('*', function(req, res){
     //console.log(url);
 
     // 测试的url
-    var url = 'https://iblogs.site'+req.originalUrl.replace('/spider','');
+    var url = 'http://localhost:80'+req.originalUrl.replace('/spider','');
     
     // 预渲染后的页面字符串容器
-    var content = "";
+    var content = '';
     // 开启一个phantomjs子进程
     var phantom = child_process.spawn('phantomjs', [path + '/spider.js', url]);
     // 设置stdout字符编码
-    phantom.stdout.setEncoding('utf8');
+    //phantom.stdout.setEncoding('utf8');
     // 监听phantomjs的stdout，并拼接起来
     phantom.stdout.on('data', function(data){
         content += data.toString();

@@ -14,7 +14,7 @@ var page = require('webpage').create();
 var system = require('system');
 // 从CLI中获取第二个参数为目标URL
 var url = system.args[1];
-phantom.outputEncoding="gbk";
+phantom.outputEncoding="utf8";
 // 设置PhantomJS视窗大小
 page.viewportSize = {
     width: 1280,
