@@ -32,8 +32,10 @@ var capture = function(errCode){
 };
 // 资源请求并计数
 page.onResourceRequested = function(req){
-    resourceCount++;
-    clearTimeout(resourceWaitTimer);
+    if(req.url.match(/\.(jpeg|jpg|gif|png)$/)==null){
+        resourceCount++;
+        clearTimeout(resourceWaitTimer);
+    }
 };
 // 资源加载完毕
 page.onResourceReceived = function (res) {

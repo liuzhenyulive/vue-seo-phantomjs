@@ -8,13 +8,14 @@ var path = process.cwd();
 var child_process = require('child_process');
 app.get('*', function(req, res){
     // 部署到服务器的完整URL
-    var url = req.protocol + '://'+ req.hostname + req.originalUrl;
+    //var url = req.protocol + '://'+ req.hostname + req.originalUrl;
+    //console.log(url);
 
     // 测试的url
-    // var url = 'https://www.baidu.com'
+    var url = 'https://iblogs.site'+req.originalUrl.replace('/spider','');
     
     // 预渲染后的页面字符串容器
-    var content = '';
+    var content = "";
     // 开启一个phantomjs子进程
     var phantom = child_process.spawn('phantomjs', [path + '/spider.js', url]);
     // 设置stdout字符编码
