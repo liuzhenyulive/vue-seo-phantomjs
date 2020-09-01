@@ -1,10 +1,10 @@
 /*global phantom*/
 "use strict";
 // 单个资源等待时间，避免资源加载后还需要加载其他资源
-var resourceWait = 500;
+var resourceWait = 1000;
 var resourceWaitTimer;
 // 最大等待时间
-var maxWait = 1000;
+var maxWait = 2000;
 var maxWaitTimer;
 // 资源计数
 var resourceCount = 0;
