@@ -45,6 +45,8 @@ app.get('*', function (req, res) {
                         break;
                     case 2:
                         console.log('加载超时: ' + url);
+                        client.set(key, content);
+                        client.expire(key, expire_time);
                         res.send(content);
                         break;
                     default:
